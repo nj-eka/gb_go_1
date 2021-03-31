@@ -14,13 +14,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-
-
-# GoLand specifics
-**/.idea
-
-# VSCode specifics
-**/.idea
+**/.vscode/*
+**/.idea/*
 
 # Help materials
 **/help
