@@ -4,9 +4,14 @@ on:
     tags:
       - v*
     branches:
+      - lesson*    
       - master
       - main
   pull_request:
+    branches:
+      - lesson*
+      - master
+      - main
 jobs:
   golangci:
     strategy:
