@@ -45,13 +45,13 @@ func RectangleS() {
 	fmt.Printf("Area = %f\n", a*b)
 }
 
-func CircleDR() {
+func CircleDL() {
 	s, err := promptFloat("Input value (float, > 0) of circle area: ", maxInputAttempts)
 	if err != nil {
 		return
 	}
 	r := math.Sqrt(s / math.Pi)
-	fmt.Printf("D = %f\nL = %f", 2 * r, 2 * r * math.Pi)
+	fmt.Printf("D = %f\nL = %f\n", 2*r, 2*r*math.Pi)
 }
 
 func NumberParts() {
@@ -59,5 +59,5 @@ func NumberParts() {
 	if err != nil {
 		return
 	}
-	fmt.Printf("%d = %d + %d + %d", n, n / 100, (n / 10) % 10, n % 10
+	fmt.Printf("%d = %d*100 + %d*10 + %d\n", n, n/100, (n/10)%10, n%10)
 }
