@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/nj-eka/gb_go_2/lesson1/measure"
+	"github.com/nj-eka/gb_go_2/lesson2/measure"
 )
 
 func main() {
