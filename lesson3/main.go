@@ -37,7 +37,6 @@ func main() {
 		var n int
 		if _, err := fmt.Scanf("%d", &n); err == nil {
 			primes := prime.FindPrimesByBruteForce(n)
-			fmt.Println(primes)
 			for _, p := range primes {
 				fmt.Println(p)
 			}
