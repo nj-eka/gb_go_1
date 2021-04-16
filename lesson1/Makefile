@@ -1,3 +1,5 @@
+# https://habr.com/ru/post/461467/
+
 PROJECT?=github.com/nj-eka/gb_go_1/lesson1
 
 GOOS?=linux
