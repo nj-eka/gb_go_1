@@ -3,36 +3,37 @@ package main
 import (
 	"fmt"
 	"log"
+	"math/big"
 	"runtime"
 	"time"
 )
 
-func FibonacciFun() func() int {
-	var first, second int = 1, 1
-	return func() int {
+func FibonacciFun() func() *big.Int {
+	var first, second *big.Int = big.NewInt(1), big.NewInt(1)
+	return func() *big.Int {
 		res := first
-		first, second = second, first+second
+		first, second = second, new(big.Int).Add(first, second)
 		return res
 	}
 }
 
-func FibonacciDefered() func() int {
-	first, second := 1, 1
-	return func() int {
+func FibonacciDefered() func() *big.Int {
+	var first, second *big.Int = big.NewInt(1), big.NewInt(1)
+	return func() *big.Int {
 		defer func() {
-			first = first + second
+			first = new(big.Int).Add(first, second)
 			first, second = second, first
 		}()
 		return first
 	}
 }
 
-func FibonacciCached(n int, cache map[int]int) int {
+func FibonacciCached(n int, cache map[int]*big.Int) *big.Int {
 	//	defer timeTrack(time.Now(), "")
 	if value, found := cache[n]; found {
 		return value
 	}
-	cache[n] = FibonacciCached(n-1, cache) + FibonacciCached(n-2, cache)
+	cache[n] = new(big.Int).Add(FibonacciCached(n-1, cache), FibonacciCached(n-2, cache))
 	return cache[n]
 }
 
@@ -81,7 +82,7 @@ func main() {
 
 	{
 		defer timeTrack(time.Now(), "FibonacciCached")
-		fmt.Println("FibonacciCached: ", FibonacciCached(n, map[int]int{1: 1, 2: 1}))
+		fmt.Println("FibonacciCached: ", FibonacciCached(n, map[int]*big.Int{1: big.NewInt(1), 2: big.NewInt(1)}))
 	}
 
 }
