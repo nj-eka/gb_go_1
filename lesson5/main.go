@@ -8,7 +8,7 @@ import (
 )
 
 func FibonacciFun() func() int {
-	var first, second int = 0, 1
+	var first, second int = 1, 1
 	return func() int {
 		res := first
 		first, second = second, first+second
@@ -28,7 +28,7 @@ func FibonacciDefered() func() int {
 }
 
 func FibonacciCached(n int, cache map[int]int) int {
-	defer timeTrack(time.Now(), "")
+	//	defer timeTrack(time.Now(), "")
 	if value, found := cache[n]; found {
 		return value
 	}
@@ -64,24 +64,24 @@ func main() {
 	{
 		defer timeTrack(time.Now(), "FibonacciFun")
 		f := FibonacciFun()
-		for i := 0; i < int(n)-1; i++ {
+		for i := 1; i < n; i++ {
 			f()
 		}
-		fmt.Println("Fibonacci number = ", f())
+		fmt.Println("FibonacciFun: ", f())
 	}
 
 	{
 		defer timeTrack(time.Now(), "FibonacciDefered")
 		f := FibonacciDefered()
-		for i := 0; i < int(n)-1; i++ {
+		for i := 1; i < n; i++ {
 			f()
 		}
-		fmt.Println("Fibonacci number = ", f())
+		fmt.Println("FibonacciDefered: ", f())
 	}
 
 	{
 		defer timeTrack(time.Now(), "FibonacciCached")
-		fmt.Println("Число Фибоначчи:", FibonacciCached(n, map[int]int{1: 1, 2: 1}))
+		fmt.Println("FibonacciCached: ", FibonacciCached(n, map[int]int{1: 1, 2: 1}))
 	}
 
 }
