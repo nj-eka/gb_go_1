@@ -1,1 +1,1 @@
-# GeekBrains / Go-1 / lesson 1
+# GeekBrains / Go-1 / lesson 2
