@@ -13,11 +13,11 @@ import (
 
 type Config struct {
 	Server struct {
-		Host    string  `envconfig:"SERVER_HOST", yaml:"host", json:"host"`
-		Port    int     `envconfig:"SERVER_PORT", yaml:"port", json:"port"`
-		Path    string  `envconfig:"SERVER_PATH", yaml:"path", json:"path"`
-		Timeout float32 `envconfig:"SERVER_TIMEOUT", yaml:"timeout", json:"timeout"`
-		Check   bool    `envconfig:"SERVER_CHECK", yaml:"check", json:"check"`
+		Host    string  `envconfig:"SERVER_HOST" yaml:"host" json:"host"`
+		Port    int     `envconfig:"SERVER_PORT" yaml:"port" json:"port"`
+		Path    string  `envconfig:"SERVER_PATH" yaml:"path" json:"path"`
+		Timeout float32 `envconfig:"SERVER_TIMEOUT" yaml:"timeout" json:"timeout"`
+		Check   bool    `envconfig:"SERVER_CHECK" yaml:"check" json:"check"`
 	} `yaml:"server" json:"server"`
 }
 
