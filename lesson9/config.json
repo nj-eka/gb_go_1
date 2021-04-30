@@ -1,7 +1,9 @@
 {
     "server": {
         "host": "http://localhost",
-        "port": 8080,
-        "path": "/dir/index.html"
+        "port": 8800,
+        "path": "/dir2",
+        "timeout": 15654,
+        "check": false     
     }
   }
